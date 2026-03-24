@@ -1,0 +1,17 @@
+[
+    {
+        "name": "bag",
+        "price": 999.0,
+        "quantity": "2"
+    },
+    {
+        "name": "bag",
+        "price": 699.0,
+        "quantity": "2"
+    },
+    {
+        "name": "laptop",
+        "price": 49999.0,
+        "quantity": "1"
+    }
+]
