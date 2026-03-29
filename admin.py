@@ -34,7 +34,7 @@ class Admin(User):
 
     def view_products(self):
         data = self.product_store.load()
-        print(data)
+        # print(data)
         if not data:
             print("No products")
             return
@@ -46,9 +46,9 @@ class Admin(User):
         data=self.product_store.load()
         
         for p in data:
-            if p["name"]==name:
-                p["quantity"]+=quantity
+            if p["name"].lower()==name.lower():
+                p["quantity"]=int(p["quantity"])+quantity
                 self.product_store.save(data)
                 print("stock added successfully")
                 return
-            print("product  not found")
+        print("product  not found")

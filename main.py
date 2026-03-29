@@ -6,6 +6,7 @@ from admin import Admin
 user_system = User()
 cart = Cart()
 product_store = Storage("products.json")
+cart_store=Storage("cart.json")
 admin=Admin()
 while True:
     role=input("Enter role admin/user/exit:").lower()
@@ -44,14 +45,14 @@ while True:
                             cart.add_product(product)
 
                             data = [{"name": i.name, "price": i.price} for i in cart.get_items()]
-                            product_store.save(data)
+                            cart_store.save(data)
 
                         elif c == "2":
                             name = input("Product name: ")
                             cart.remove_product(name)
 
                             data = [{"name": i.name, "price": i.price} for i in cart.get_items()]
-                            product_store.save(data)
+                            cart_store.save(data)
 
                         elif c == "3":
                             cart.show_products()

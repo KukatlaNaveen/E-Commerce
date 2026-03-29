@@ -4,7 +4,12 @@ from storage import Storage
 class User:
     def __init__(self):
         self.storage = Storage("users.json")
-        self.__users = self.storage.load()
+        try:
+           self.__users = self.storage.load()
+        except json.JSONDecodeError:
+           self.__users={}
+        if not isinstance(self.__users,dict):
+            self.__users={}
 
     def register(self, username, password):
         if username in self.__users:
