@@ -30,6 +30,13 @@ class Cart(Product):  # inheritance
     def total_price(self):
         total = sum(item.price for item in self.__items)
         print("Total price:", total)
+        
+        if total>1000:
+            discount=total*0.10
+            total-=discount
+            print("Total price with discount:",total)
+        else:
+            print("discount is not available")
 
     def get_items(self):
         return self.__items
